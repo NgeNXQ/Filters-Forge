@@ -1,0 +1,9 @@
+# directoires
+
+.vs/
+bin/
+obj/
+
+# files extensions
+
+*.png
