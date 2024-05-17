@@ -1,6 +1,6 @@
-﻿using FiltersForge.Filters.Common.Validation;
+﻿using WindowsWizard.Filters.Common.Validation;
 
-namespace FiltersForge.Filters
+namespace WindowsWizard.Filters
 {
     internal struct ParallelPSXPreferences
     {

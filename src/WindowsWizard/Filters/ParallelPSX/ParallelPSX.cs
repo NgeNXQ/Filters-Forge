@@ -2,9 +2,9 @@
 using System.Drawing.Imaging;
 using System.Threading.Tasks;
 
-using FiltersForge.Filters.Common.Base;
+using WindowsWizard.Filters.Common.Base;
 
-namespace FiltersForge.Filters
+namespace WindowsWizard.Filters
 {
     internal sealed class ParallelPSX : Filter, IFilterParameterized<ParallelPSXPreferences>
     {

@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace FiltersForge.Filters.Common.Base
+namespace WindowsWizard.Filters.Common.Base
 {
     internal static class BitmapExtensions
     {

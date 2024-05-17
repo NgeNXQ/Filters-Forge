@@ -6,7 +6,7 @@
 using System.IO;
 using System.Text;
 
-namespace FiltersForge.CUI
+namespace WindowsWizard.CUI
 {
     internal static class ConsoleHelper
     {

@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace FiltersForge.Filters.Common.Base
+namespace WindowsWizard.Filters.Common.Base
 {
     internal interface IFilterParameterized<TPreferences> where TPreferences : struct
     {

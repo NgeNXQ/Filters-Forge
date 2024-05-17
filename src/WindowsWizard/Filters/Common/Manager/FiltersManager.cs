@@ -2,9 +2,9 @@
 using System.Reflection;
 using System.Collections.Generic;
 
-using FiltersForge.Filters.Common.Base;
+using WindowsWizard.Filters.Common.Base;
 
-namespace FiltersForge.Filters.Common.Manager
+namespace WindowsWizard.Filters.Common.Manager
 {
     internal sealed class FiltersManager
     {

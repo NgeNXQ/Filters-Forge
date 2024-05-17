@@ -5,18 +5,31 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsWizard", "src\WindowsWizard\WindowsWizard.csproj", "{509784E7-D71D-4DEA-9596-E562BDBAED78}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{117BD4E1-B9B6-4B17-A582-DA048B6C66EE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "art", "art", "{BDFEAD2D-8641-4323-AA24-E82A08BBA6BC}"
-	ProjectSection(SolutionItems) = preProject
-		data\art\Art.txt = data\art\Art.txt
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7AB4B5E8-4816-4194-99D4-AFDEDA29780C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{FFE695ED-C292-44B2-8A1B-DB29D572E8EF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WindowsWizard", "WindowsWizard", "{FFE695ED-C292-44B2-8A1B-DB29D572E8EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{56967D5E-147A-4C8D-BA71-06C151288825}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{ED3C4F45-F144-41FB-9752-8646125FF2B1}"
+	ProjectSection(SolutionItems) = preProject
+		tests\Assets\10k.png = tests\Assets\10k.png
+		tests\Assets\15k.png = tests\Assets\15k.png
+		tests\Assets\1k.png = tests\Assets\1k.png
+		tests\Assets\20k.png = tests\Assets\20k.png
+		tests\Assets\2k.png = tests\Assets\2k.png
+		tests\Assets\3k.png = tests\Assets\3k.png
+		tests\Assets\5k.png = tests\Assets\5k.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ImageGeneratorWizard", "ImageGeneratorWizard", "{0FE11232-7A72-45E9-B541-73E0B2724DC6}"
+	ProjectSection(SolutionItems) = preProject
+		tests\ImageGeneratorWizard\images_generator.py = tests\ImageGeneratorWizard\images_generator.py
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsWizard.Tests", "tests\WindowsWizard.Tests\WindowsWizard.Tests.csproj", "{2641BC34-684A-4DF4-AAA0-1D38820E1A6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WindowsWizard.Tests", "WindowsWizard.Tests", "{2F70D73F-A39B-47AF-9B44-1D1B808B75CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,14 +41,21 @@ Global
 		{509784E7-D71D-4DEA-9596-E562BDBAED78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{509784E7-D71D-4DEA-9596-E562BDBAED78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{509784E7-D71D-4DEA-9596-E562BDBAED78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2641BC34-684A-4DF4-AAA0-1D38820E1A6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2641BC34-684A-4DF4-AAA0-1D38820E1A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2641BC34-684A-4DF4-AAA0-1D38820E1A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2641BC34-684A-4DF4-AAA0-1D38820E1A6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{509784E7-D71D-4DEA-9596-E562BDBAED78} = {FFE695ED-C292-44B2-8A1B-DB29D572E8EF}
-		{BDFEAD2D-8641-4323-AA24-E82A08BBA6BC} = {117BD4E1-B9B6-4B17-A582-DA048B6C66EE}
 		{FFE695ED-C292-44B2-8A1B-DB29D572E8EF} = {7AB4B5E8-4816-4194-99D4-AFDEDA29780C}
+		{ED3C4F45-F144-41FB-9752-8646125FF2B1} = {56967D5E-147A-4C8D-BA71-06C151288825}
+		{0FE11232-7A72-45E9-B541-73E0B2724DC6} = {56967D5E-147A-4C8D-BA71-06C151288825}
+		{2641BC34-684A-4DF4-AAA0-1D38820E1A6E} = {2F70D73F-A39B-47AF-9B44-1D1B808B75CA}
+		{2F70D73F-A39B-47AF-9B44-1D1B808B75CA} = {56967D5E-147A-4C8D-BA71-06C151288825}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FFA5C139-DEEE-409D-A4EF-61FA6D3BE4D5}

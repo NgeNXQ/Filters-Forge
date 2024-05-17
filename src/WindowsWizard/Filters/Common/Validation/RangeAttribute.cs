@@ -1,4 +1,4 @@
-﻿namespace FiltersForge.Filters.Common.Validation
+﻿namespace WindowsWizard.Filters.Common.Validation
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
     internal sealed class RangeAttribute<T> : Attribute where T : struct, IComparable, IComparable<T>, IEquatable<T>

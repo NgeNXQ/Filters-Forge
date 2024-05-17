@@ -23,8 +23,4 @@
     <_SuppressWinFormsTrimError>true</_SuppressWinFormsTrimError>
   </PropertyGroup>
 
-  <ItemGroup>
-    <EditorConfigFiles  Include = "$(ProjectDir)\.editorconfig" />
-  </ItemGroup>
-
 </Project>
