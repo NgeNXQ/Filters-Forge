@@ -7,33 +7,20 @@ namespace WindowsWizard.Tests.Filters.ParallelPSX
     [TestClass]
     public sealed class ParallelPSXTests
     {
-        private Bitmap? image1k;
-        private Bitmap? image2k;
-        private Bitmap? image3k;
-        private Bitmap? image5k;
-        private Bitmap? image10k;
-        private Bitmap? image15k;
-        private Bitmap? image20k;
+        private Bitmap? imageInput;
 
-        private Bitmap? imageResult;
+        private Bitmap? imageResult1;
+        private Bitmap? imageResult2;
 
         private WindowsWizard.Filters.ParallelPSX? parallelPSX;
-
-        //private readonly int[] blockSizes = new int[] { 10, 20, 30, 40, 50 };
-        //private readonly int[] threadsCounts = new int[] { 2, 3, 4, 6, 9, 12  };
+        private WindowsWizard.Filters.SequentialPSX? sequentialPSX;
 
         [TestInitialize]
         public void Setup()
         {
             this.parallelPSX = new WindowsWizard.Filters.ParallelPSX();
-
-            this.image1k = new Bitmap(@"../../../../../tests/Assets/1k.png");
-            this.image2k = new Bitmap(@"../../../../../tests/Assets/2k.png");
-            this.image3k = new Bitmap(@"../../../../../tests/Assets/3k.png");
-            this.image5k = new Bitmap(@"../../../../../tests/Assets/5k.png");
-            this.image10k = new Bitmap(@"../../../../../tests/Assets/10k.png");
-            this.image15k = new Bitmap(@"../../../../../tests/Assets/15k.png");
-            this.image20k = new Bitmap(@"../../../../../tests/Assets/20k.png");
+            this.sequentialPSX = new WindowsWizard.Filters.SequentialPSX();
+            this.imageInput = new Bitmap(@"../../../../../tests/Assets/1k.png");
         }
 
         [TestMethod]
@@ -43,10 +30,87 @@ namespace WindowsWizard.Tests.Filters.ParallelPSX
 
             parallelPSXPreferences.BlockSize = 10;
             parallelPSXPreferences.ThreadsCount = 2;
-            
-            this.imageResult = this.parallelPSX!.Apply(this.image1k!, parallelPSXPreferences);
 
-            Assert.IsNotNull(this.imageResult);
+            SequentialPSXPreferences sequentialPSXPreferences = new SequentialPSXPreferences();
+
+            sequentialPSXPreferences.BlockSize = 10;
+
+            this.imageResult1 = this.parallelPSX!.Apply(this.imageInput!, parallelPSXPreferences);
+            this.imageResult2 = this.sequentialPSX!.Apply(this.imageInput!, sequentialPSXPreferences);
+
+            Assert.IsTrue(this.AreImagesEqual(this.imageResult1, this.imageResult2));
+        }
+
+        public void Apply_Image1k_BlockSize10_ThreadsCount3_ReturnsBitmap()
+        {
+            ParallelPSXPreferences parallelPSXPreferences = new ParallelPSXPreferences();
+
+            parallelPSXPreferences.BlockSize = 10;
+            parallelPSXPreferences.ThreadsCount = 3;
+
+            SequentialPSXPreferences sequentialPSXPreferences = new SequentialPSXPreferences();
+
+            sequentialPSXPreferences.BlockSize = 10;
+
+            this.imageResult1 = this.parallelPSX!.Apply(this.imageInput!, parallelPSXPreferences);
+            this.imageResult2 = this.sequentialPSX!.Apply(this.imageInput!, sequentialPSXPreferences);
+
+            Assert.IsTrue(this.AreImagesEqual(this.imageResult1, this.imageResult2));
+        }
+
+        public void Apply_Image1k_BlockSize15_ThreadsCount2_ReturnsBitmap()
+        {
+            ParallelPSXPreferences parallelPSXPreferences = new ParallelPSXPreferences();
+
+            parallelPSXPreferences.BlockSize = 10;
+            parallelPSXPreferences.ThreadsCount = 3;
+
+            SequentialPSXPreferences sequentialPSXPreferences = new SequentialPSXPreferences();
+
+            sequentialPSXPreferences.BlockSize = 10;
+
+            this.imageResult1 = this.parallelPSX!.Apply(this.imageInput!, parallelPSXPreferences);
+            this.imageResult2 = this.sequentialPSX!.Apply(this.imageInput!, sequentialPSXPreferences);
+
+            Assert.IsTrue(this.AreImagesEqual(this.imageResult1, this.imageResult2));
+        }
+
+        public void Apply_Image1k_BlockSize15_ThreadsCount3_ReturnsBitmap()
+        {
+            ParallelPSXPreferences parallelPSXPreferences = new ParallelPSXPreferences();
+
+            parallelPSXPreferences.BlockSize = 10;
+            parallelPSXPreferences.ThreadsCount = 3;
+
+            SequentialPSXPreferences sequentialPSXPreferences = new SequentialPSXPreferences();
+
+            sequentialPSXPreferences.BlockSize = 10;
+
+            this.imageResult1 = this.parallelPSX!.Apply(this.imageInput!, parallelPSXPreferences);
+            this.imageResult2 = this.sequentialPSX!.Apply(this.imageInput!, sequentialPSXPreferences);
+
+            Assert.IsTrue(this.AreImagesEqual(this.imageResult1, this.imageResult2));
+        }
+
+        private bool AreImagesEqual(Bitmap image1, Bitmap image2)
+        {
+            if (image1.Width != image2.Width || image1.Height != image2.Height)
+            {
+                return false;
+            }
+
+            for (int x = 0; x < image1.Width; ++x)
+            {
+                for (int y = 0; y < image1.Height; ++y)
+                {
+                    if (image1.GetPixel(x, y) != image2.GetPixel(x, y))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }
