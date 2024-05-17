@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Collections.Generic;
 
-namespace FiltersForge.CUI
+namespace WindowsWizard.CUI
 {
     internal sealed class Menu
     {

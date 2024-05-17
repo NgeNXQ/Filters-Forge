@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 
-namespace FiltersForge.CUI
+namespace WindowsWizard.CUI
 {
     internal sealed class MenuBuilder
     {

@@ -8,12 +8,12 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-using FiltersForge.CUI;
-using FiltersForge.Filters.Common.Base;
-using FiltersForge.Filters.Common.Manager;
-using FiltersForge.Filters.Common.Validation;
+using WindowsWizard.CUI;
+using WindowsWizard.Filters.Common.Base;
+using WindowsWizard.Filters.Common.Manager;
+using WindowsWizard.Filters.Common.Validation;
 
-namespace FiltersForge.Main
+namespace WindowsWizard.Main
 {
     internal sealed class Program
     {
@@ -27,7 +27,7 @@ namespace FiltersForge.Main
         [STAThread]
         private static void Main()
         {
-            const string RELATIVE_PATH_ASCII_ART = "Art.txt";
+            const string RELATIVE_PATH_ASCII_ART = "SplashScreen.txt";
 
             ConsoleHelper.LoadAsciiArt(RELATIVE_PATH_ASCII_ART);
 

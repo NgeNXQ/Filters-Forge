@@ -1,4 +1,4 @@
-﻿namespace FiltersForge.CUI
+﻿namespace WindowsWizard.CUI
 {
     internal readonly struct MenuOption
     {

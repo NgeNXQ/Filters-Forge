@@ -1,8 +1,8 @@
 # directoires
 
 .vs/
-bin/
-obj/
+out/
+TestResults/
 
 # files extensions
 

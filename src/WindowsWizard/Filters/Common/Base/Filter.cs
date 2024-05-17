@@ -1,4 +1,4 @@
-﻿namespace FiltersForge.Filters.Common.Base
+﻿namespace WindowsWizard.Filters.Common.Base
 {
     internal abstract class Filter
     {

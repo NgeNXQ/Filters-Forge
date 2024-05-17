@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 
-using FiltersForge.Filters.Common.Base;
+using WindowsWizard.Filters.Common.Base;
 
-namespace FiltersForge.Filters
+namespace WindowsWizard.Filters
 {
     internal sealed class SequentialPSX : Filter, IFilterParameterized<SequentialPSXPreferences>
     {
