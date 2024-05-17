@@ -1,8 +1,7 @@
 # directoires
 
 .vs/
-bin/
-obj/
+out/
 
 # files extensions
 

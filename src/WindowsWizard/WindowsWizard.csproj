@@ -1,29 +1,30 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk = "Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <PublishAot>true</PublishAot>
     <UseWindowsForms>true</UseWindowsForms>
     <TargetFramework>net8.0-windows</TargetFramework>
+  </PropertyGroup>
 
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>  
+  </PropertyGroup>
+
+  <PropertyGroup>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
 
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>  
-
-    <!-- xdd -->
+  <PropertyGroup>
     <NoWarn>CA1416,CAxxxxx</NoWarn>
     <_SuppressWinFormsTrimError>true</_SuppressWinFormsTrimError>
   </PropertyGroup>
 
   <ItemGroup>
-    <EditorConfigFiles Remove="E:\Projects\Filters-Forge\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="E:\Projects\Filters-Forge\.editorconfig" />
+    <EditorConfigFiles  Include = "$(ProjectDir)\.editorconfig" />
   </ItemGroup>
 
 </Project>

@@ -3,7 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiltersForge", "FiltersForge.csproj", "{509784E7-D71D-4DEA-9596-E562BDBAED78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsWizard", "src\WindowsWizard\WindowsWizard.csproj", "{509784E7-D71D-4DEA-9596-E562BDBAED78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{117BD4E1-B9B6-4B17-A582-DA048B6C66EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "art", "art", "{BDFEAD2D-8641-4323-AA24-E82A08BBA6BC}"
+	ProjectSection(SolutionItems) = preProject
+		data\art\Art.txt = data\art\Art.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7AB4B5E8-4816-4194-99D4-AFDEDA29780C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{FFE695ED-C292-44B2-8A1B-DB29D572E8EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{56967D5E-147A-4C8D-BA71-06C151288825}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +31,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{509784E7-D71D-4DEA-9596-E562BDBAED78} = {FFE695ED-C292-44B2-8A1B-DB29D572E8EF}
+		{BDFEAD2D-8641-4323-AA24-E82A08BBA6BC} = {117BD4E1-B9B6-4B17-A582-DA048B6C66EE}
+		{FFE695ED-C292-44B2-8A1B-DB29D572E8EF} = {7AB4B5E8-4816-4194-99D4-AFDEDA29780C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FFA5C139-DEEE-409D-A4EF-61FA6D3BE4D5}

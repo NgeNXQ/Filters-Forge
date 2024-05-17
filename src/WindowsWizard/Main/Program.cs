@@ -27,7 +27,7 @@ namespace FiltersForge.Main
         [STAThread]
         private static void Main()
         {
-            const string RELATIVE_PATH_ASCII_ART = "Art.txt";
+            const string RELATIVE_PATH_ASCII_ART = "SplashScreen.txt";
 
             ConsoleHelper.LoadAsciiArt(RELATIVE_PATH_ASCII_ART);
 
