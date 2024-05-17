@@ -1,0 +1,18 @@
+
+# All files
+[*]
+indent_style = space
+
+# Xml files
+
+# IDE0028: Simplify collection initialization
+dotnet_diagnostic.IDE0028.severity = none
+
+# IDE0090: Use 'new(...)'
+dotnet_diagnostic.IDE0090.severity = none
+
+# IDE0063: Use simple 'using' statement
+dotnet_diagnostic.IDE0063.severity = none
+
+[*.xml]
+indent_size = 2
