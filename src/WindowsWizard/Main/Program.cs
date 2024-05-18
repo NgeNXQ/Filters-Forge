@@ -41,6 +41,8 @@ namespace WindowsWizard.Main
                 option.OptionAction?.Invoke();
             }
 
+            Program.image?.Dispose();
+
             ConsoleHelper.Shutdown();
         }
 
@@ -101,7 +103,6 @@ namespace WindowsWizard.Main
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Program.image = new Bitmap(openFileDialog.FileName);
-                    Console.Title = Path.GetFileName(openFileDialog.FileName);
                 }
             }
         }
