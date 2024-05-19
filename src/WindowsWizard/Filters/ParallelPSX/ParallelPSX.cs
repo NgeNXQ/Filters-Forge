@@ -26,7 +26,7 @@ namespace WindowsWizard.Filters
             this.imageHeight = image.Height;
 
             int blockSize = preferences.BlockSize;
-            int taskPayload = image.Height / preferences.ThreadsCount;
+            int taskPayload = image.Height / blockSize / preferences.ThreadsCount;
 
             this.inputImageBitmapData = this.inputImage.Lock();
             this.outputImageBitmapData = this.outputImage.Lock();
@@ -35,8 +35,8 @@ namespace WindowsWizard.Filters
 
             for (int i = 0; i < tasks.Length; ++i)
             {
-                int indexStart = i * taskPayload;
-                int indexFinish = (i == tasks.Length - 1) ? image.Height : (indexStart + taskPayload);
+                int indexStart = i * taskPayload * blockSize;
+                int indexFinish = (i == tasks.Length - 1) ? image.Height : (indexStart + (taskPayload * blockSize));
 
                 tasks[i] = Task.Run(() =>
                 {
@@ -77,7 +77,7 @@ namespace WindowsWizard.Filters
             {
                 for (int x = startX; x < (startX + blockWidth) && x < this.imageWidth; ++x)
                 {
-                    pixelColor = this.inputImage!.GetPixelSynchronized(x, y, this.inputImageBitmapData!);
+                    pixelColor = this.inputImage!.GetPixel(x, y, this.inputImageBitmapData!);
 
                     totalR += pixelColor.R;
                     totalG += pixelColor.G;
@@ -100,7 +100,7 @@ namespace WindowsWizard.Filters
             {
                 for (int x = startX; x < (startX + blockWidth) && x < this.imageWidth; ++x)
                 {
-                    this.outputImage!.SetPixelSynchronized(x, y, color, this.outputImageBitmapData!);
+                    this.outputImage!.SetPixel(x, y, color, this.outputImageBitmapData!);
                 }
             }
         }

@@ -31,9 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsWizard.Tests", "test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WindowsWizard.Tests", "WindowsWizard.Tests", "{2F70D73F-A39B-47AF-9B44-1D1B808B75CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsWizard.Benchmark", "src\WindowsWizard.Benchmark\WindowsWizard.Benchmark.csproj", "{F87C9370-D6F3-4183-8D6D-383784881DC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsWizard.Benchmark", "src\WindowsWizard.Benchmark\WindowsWizard.Benchmark.csproj", "{F87C9370-D6F3-4183-8D6D-383784881DC9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WindowsWizard.Benchmark", "WindowsWizard.Benchmark", "{A59B1159-50AA-4061-B583-CD04DFB037C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{CC859687-18E7-4AC0-ADD0-4035083A419D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

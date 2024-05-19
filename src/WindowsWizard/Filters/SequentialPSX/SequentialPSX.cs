@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-
+using System.Drawing.Imaging;
 using WindowsWizard.Filters.Common.Base;
 
 namespace WindowsWizard.Filters
@@ -8,6 +8,8 @@ namespace WindowsWizard.Filters
     {
         private Bitmap? inputImage;
         private Bitmap? outputImage;
+        private BitmapData? inputImageBitmapData;
+        private BitmapData? outputImageBitmapData;
 
         internal override string Alias { get => "psx sequential"; }
 
@@ -15,6 +17,9 @@ namespace WindowsWizard.Filters
         {
             this.inputImage = image;
             this.outputImage = new Bitmap(image.Width, image.Height);
+
+            this.inputImageBitmapData = this.inputImage.Lock();
+            this.outputImageBitmapData = this.outputImage.Lock();
 
             int correctBlockWidth;
             int correctBlockHeight;
@@ -30,6 +35,9 @@ namespace WindowsWizard.Filters
                     this.FillPixelBlock(x, y, correctBlockWidth, correctBlockHeight, averageColor);
                 }
             }
+
+            this.inputImage.Unlock(this.inputImageBitmapData);
+            this.outputImage.Unlock(this.outputImageBitmapData);
 
             return this.outputImage;
         }
@@ -49,7 +57,7 @@ namespace WindowsWizard.Filters
             {
                 for (int x = startX; x < (startX + blockWidth) && x < this.inputImage.Width; ++x)
                 {
-                    pixelColor = this.inputImage.GetPixel(x, y);
+                    pixelColor = this.inputImage.GetPixel(x, y, this.inputImageBitmapData!);
 
                     totalR += pixelColor.R;
                     totalG += pixelColor.G;
@@ -72,7 +80,7 @@ namespace WindowsWizard.Filters
             {
                 for (int x = startX; x < (startX + blockWidth) && x < this.outputImage.Width; ++x)
                 {
-                    this.outputImage.SetPixel(x, y, color);
+                    this.outputImage!.SetPixel(x, y, color, this.outputImageBitmapData!);
                 }
             }
         }

@@ -1,0 +1,87 @@
+function Apply(image, blockSize, threadsCount)
+    outputImage = Bitmap(imageInput)
+    inputImageBitmapData = imageInput.Lock()
+    outputImageBitmapData = outputImage.Lock()
+
+    threads[threadsCount]
+    threadPayload = image.Height / blockSize / threadsCount
+
+    for i = 0 to i < threadsCount with i += 1
+        threads[i] = Thread()
+        indexStart = i * threadPayload * blockSize
+	
+	if i == (threadsCount - 1)
+	    indexFinish = image.Height
+	else
+	    indexFinish = indexStart + (threadPayload * blockSize)
+
+        for y = 0 to y < image.Height with y += blockSize
+            for x = 0 to x < image.Width with x += blockSize
+                correctBlockWidth = Min(blockSize, image.Width - x)
+                correctBlockHeight = Min(blockSize, image.Height - y)
+                averageColor = GetAverageColor(x, y, correctBlockWidth, correctBlockHeight)
+                FillPixelBlock(x, y, correctBlockWidth, correctBlockHeight, averageColor)
+
+	 threads[i].Start()
+
+    imageInput.Unlock(inputImageBitmapData)
+    outputImage.Unlock(outputImageBitmapData)
+
+    return image
+
+function GetAverageColor(startX, startY, blockWidth, blockHeight)
+    totalR = 0
+    totalG = 0
+    totalB = 0
+    totalA = 0
+    pixelsCount = blockWidth * blockHeight
+
+    for y = startY to y < startY + blockHeight and y < image.Height with y += 1
+        for x = startX to x < startX + blockWidth and x < image.Width with x += 1
+            pixelColor = imageInput.GetPixel(x, y, inputImageBitmapData)
+            totalR += pixelColor.R
+            totalG += pixelColor.G
+            totalB += pixelColor.B
+            totalA += pixelColor.A
+
+    averageR = totalR / pixelsCount;
+    averageG = totalG / pixelsCount;
+    averageB = totalB / pixelsCount;
+    averageA = totalA / pixelsCount;
+
+    return Color.FromArgb(averageA, averageR, averageG, averageB)
+
+function FillPixelBlock(startX, startY, blockWidth, blockHeight, color)
+    for y = startY to y < startY + blockHeight and y < image.Height with y += 1
+        for x = startX to x < startX + blockWidth and x < image.Width with x += 1
+            outputImage.SetPixel(x, y, color, outputImageBitmapData)
+
+
+
+
+
+function Apply(image, blockSize, threadsCount)
+    threads[threadsCount]
+    threadPayload = image.Height / blockSize / threadsCount
+
+    for i = 0 to i < threadsCount with i += 1
+        threads[i] = Thread()
+        indexStart = i * threadPayload * blockSize
+	
+	if i == (threadsCount - 1)
+	    indexFinish = image.Height
+	else
+	    indexFinish = indexStart + (threadPayload * blockSize)
+
+        for y = 0 to y < image.Height with y += blockSize
+            for x = 0 to x < image.Width with x += blockSize
+                correctBlockWidth = Min(blockSize, image.Width - x)
+                correctBlockHeight = Min(blockSize, image.Height - y)
+                averageColor = GetAverageColor(x, y, correctBlockWidth, correctBlockHeight)
+                FillPixelBlock(x, y, correctBlockWidth, correctBlockHeight, averageColor)
+
+	 threads[i].Start()
+
+    return image
+
+
