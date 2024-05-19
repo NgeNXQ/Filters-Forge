@@ -26,7 +26,7 @@ namespace WindowsWizard.Filters
             this.imageHeight = image.Height;
 
             int blockSize = preferences.BlockSize;
-            int taskPayload = image.Height / preferences.ThreadsCount;
+            int taskPayload = image.Height / blockSize / preferences.ThreadsCount;
 
             this.inputImageBitmapData = this.inputImage.Lock();
             this.outputImageBitmapData = this.outputImage.Lock();
@@ -35,8 +35,8 @@ namespace WindowsWizard.Filters
 
             for (int i = 0; i < tasks.Length; ++i)
             {
-                int indexStart = i * taskPayload;
-                int indexFinish = (i == tasks.Length - 1) ? image.Height : (indexStart + taskPayload);
+                int indexStart = i * taskPayload * blockSize;
+                int indexFinish = (i == tasks.Length - 1) ? image.Height : (indexStart + taskPayload * blockSize);
 
                 tasks[i] = Task.Run(() =>
                 {

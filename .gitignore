@@ -1,9 +1,6 @@
 # directoires
 
 .vs/
-out/
+build/
 TestResults/
-
-# files extensions
-
-*.png
+tests/Assets/
