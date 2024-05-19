@@ -48,7 +48,7 @@ namespace WindowsWizard.Benchmark.Filters
 
         private static void Main()
         {
-            //Program.RunBenchmarkParallelPSX();
+            Benchmark.RunBenchmarkParallelPSX();
             Benchmark.RunBenchmarkSequentialPSX();
 
             foreach (Bitmap image in Benchmark.images)

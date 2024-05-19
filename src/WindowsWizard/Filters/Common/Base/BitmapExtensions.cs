@@ -10,30 +10,23 @@ namespace WindowsWizard.Filters.Common.Base
         private const int COLOR_CHANNEL_RED = 2;
         private const int COLOR_CHANNEL_ALPHA = 3;
 
-        private static readonly object locker;
-
-        static BitmapExtensions()
+        public static int GetWidthSynchronized(this Bitmap bitmap, object locker)
         {
-            BitmapExtensions.locker = new object();
-        }
-
-        public static int GetWidthSynchronized(this Bitmap bitmap)
-        {
-            lock (BitmapExtensions.locker)
+            lock (locker)
             {
                 return bitmap.Width;
             }
         }
 
-        public static int GetHeightSynchronized(this Bitmap bitmap)
+        public static int GetHeightSynchronized(this Bitmap bitmap, object locker)
         {
-            lock (BitmapExtensions.locker)
+            lock (locker)
             {
                 return bitmap.Height;
             }
         }
 
-        public unsafe static Color GetPixelSynchronized(this Bitmap bitmap, int x, int y, BitmapData bitmapData)
+        public unsafe static Color GetPixel(this Bitmap bitmap, int x, int y, BitmapData bitmapData)
         {
             int bytesPerPixel = BitmapExtensions.CalculateBytesPerPixel(bitmapData);
             byte* row = (byte*)bitmapData.Scan0 + (y * bitmapData.Stride);
@@ -55,7 +48,7 @@ namespace WindowsWizard.Filters.Common.Base
             }
         }
 
-        public unsafe static void SetPixelSynchronized(this Bitmap bitmap, int x, int y, Color color, BitmapData bitmapData)
+        public unsafe static void SetPixel(this Bitmap bitmap, int x, int y, Color color, BitmapData bitmapData)
         {
             int bytesPerPixel = BitmapExtensions.CalculateBytesPerPixel(bitmapData);
             byte* row = (byte*)bitmapData.Scan0 + (y * bitmapData.Stride);
